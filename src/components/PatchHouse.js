@@ -1,12 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
-import { patchCompanyData } from '../services/api';
+import { patchHouseData } from '../services/api';
 
 
-function PatchCompany({ companyId }) {
+function PatchHouse({ houseId }) {
     const [showInputs, setShowInputs] = useState(false);
     const [name, setName] = useState('');
-    const [location, setLocation] = useState('');
 
     const handleClick = () => {
         setShowInputs(!showInputs);
@@ -14,17 +13,17 @@ function PatchCompany({ companyId }) {
 
     const handleSave = async () => {
         try {
-            await patchCompanyData('/company', companyId, name, location);
-            alert('Företaget har ändrats');
+            await patchHouseData('/house', houseId, name);
+            alert('Husets namn har ändrats');
         } catch (error) {
-            console.error('Error att ändra företag', error);
+            console.error('Error att ändra hus', error);
         }
     }
 
     return (
         <div>
             <button onClick={handleClick} type="button" className="btn btn-secondary">
-                Ändra företagets namn
+                Ändra husets namn
             </button>
             {showInputs && (
                 <div>
@@ -43,4 +42,4 @@ function PatchCompany({ companyId }) {
     );
 }
 
-export default PatchCompany;
+export default PatchHouse;

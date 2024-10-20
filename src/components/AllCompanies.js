@@ -29,7 +29,7 @@ function AllCompanies() {
                             <p>Namn: {company.name}</p>
                             <p>Address: {company.location}</p>
                             <DeleteCompany companyId={company.id} />
-                            <PatchCompany />
+                            <PatchCompany companyId={company.id} />
                         </li>
 
                     ))

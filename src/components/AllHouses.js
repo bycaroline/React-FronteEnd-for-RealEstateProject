@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getData } from '../services/api';
 import DeleteHouse from './DeleteHouse';
+import PatchHouse from './PatchHouse';
 
 function AllHouses() {
     const [houses, setHouses] = useState([]);
@@ -29,6 +30,7 @@ function AllHouses() {
                             <p>Typ: {house.type}</p>
                             <p>Storlek i kvm: {house.size}</p>
                             < DeleteHouse houseId={house.id} />
+                            <PatchHouse houseId={house.id} />
                         </li>
                     ))
                 ) : (
